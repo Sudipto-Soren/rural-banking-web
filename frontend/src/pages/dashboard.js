@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Balance from "./balance";
 import Transactions from "./transactions";
-import Settings from "./settings";
+import Settings from "./settings_home";
 
 function Dashboard({ user, setUser }) {
   const [page, setPage] = useState("home");
@@ -11,13 +11,13 @@ function Dashboard({ user, setUser }) {
   if (page === "settings") return <Settings user={user} setPage={setPage} />;
 
   return (
-    <div className="bg-background-light dark:bg-background-dark min-h-screen font-display text-text-main-light dark:text-text-main-dark">
+    <div className="min-h-screen bg-gradient-to-br from-green-100 to-emerald-200 text-gray-900">
       {/* Header */}
-      <header className="w-full flex justify-center py-4 px-4 sm:px-8 border-b bg-white/50 dark:bg-black/20 sticky top-0 z-50">
-        <div className="flex items-center justify-between w-full max-w-[1200px]">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="size-10 bg-primary/20 rounded-full flex items-center justify-center text-primary">
-              <span className="material-symbols-outlined text-2xl">
+            <div className="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center">
+              <span className="material-symbols-outlined text-green-700">
                 account_balance
               </span>
             </div>
@@ -26,74 +26,62 @@ function Dashboard({ user, setUser }) {
 
           <button
             onClick={() => setUser(null)}
-            className="flex h-10 px-5 items-center justify-center rounded-full bg-primary hover:bg-primary-dark text-black font-bold"
+            className="flex items-center gap-2 px-5 py-2 rounded-full bg-red-400 hover:bg-red-500 text-white font-semibold"
           >
-            <span className="material-symbols-outlined mr-2">logout</span>
+            <span className="material-symbols-outlined text-sm">logout</span>
             Logout
           </button>
         </div>
       </header>
 
       {/* Main */}
-      <main className="flex justify-center px-4 py-8">
-        <div className="w-full max-w-[1200px] flex flex-col gap-8">
+      <main className="max-w-6xl mx-auto px-4 py-10">
+        <div className="space-y-8">
           {/* Greeting */}
           <div>
-            <h1 className="text-3xl sm:text-4xl font-black">
-              Good Morning, {user?.name || "User"}
+            <h1 className="text-3xl sm:text-4xl font-bold">
+              Welcome, {user?.name || "User"}
             </h1>
-            <p className="text-lg text-text-sub-light">
-              Welcome to your Rural Bank Dashboard.
+            <p className="text-gray-600">
+              Manage your banking safely and easily.
             </p>
           </div>
 
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Balance */}
             <button
               onClick={() => setPage("balance")}
-              className="flex flex-col items-center justify-center gap-6 rounded-lg bg-card-light dark:bg-card-dark p-10 shadow-sm hover:shadow-xl transition"
+              className="bg-white p-8 rounded-xl shadow hover:shadow-xl transition flex flex-col items-center gap-4"
             >
-              <span className="material-symbols-outlined text-[56px] text-green-600">
+              <span className="material-symbols-outlined text-5xl text-green-600">
                 account_balance_wallet
               </span>
-              <div className="text-center">
-                <h3 className="text-2xl font-bold">Check My Money</h3>
-                <p className="text-text-sub-light">View Balance</p>
-              </div>
+              <h3 className="text-xl font-semibold">Check Balance</h3>
             </button>
 
-            {/* Transactions */}
             <button
               onClick={() => setPage("transactions")}
-              className="flex flex-col items-center justify-center gap-6 rounded-lg bg-card-light dark:bg-card-dark p-10 shadow-sm hover:shadow-xl transition"
+              className="bg-white p-8 rounded-xl shadow hover:shadow-xl transition flex flex-col items-center gap-4"
             >
-              <span className="material-symbols-outlined text-[56px] text-blue-600">
+              <span className="material-symbols-outlined text-5xl text-blue-600">
                 receipt_long
               </span>
-              <div className="text-center">
-                <h3 className="text-2xl font-bold">Past Payments</h3>
-                <p className="text-text-sub-light">Transactions</p>
-              </div>
+              <h3 className="text-xl font-semibold">Transactions</h3>
             </button>
 
-            {/* Settings */}
             <button
               onClick={() => setPage("settings")}
-              className="flex flex-col items-center justify-center gap-6 rounded-lg bg-card-light dark:bg-card-dark p-10 shadow-sm hover:shadow-xl transition"
+              className="bg-white p-8 rounded-xl shadow hover:shadow-xl transition flex flex-col items-center gap-4"
             >
-              <span className="material-symbols-outlined text-[56px] text-orange-600">
+              <span className="material-symbols-outlined text-5xl text-orange-600">
                 manage_accounts
               </span>
-              <div className="text-center">
-                <h3 className="text-2xl font-bold">My Account</h3>
-                <p className="text-text-sub-light">Settings</p>
-              </div>
+              <h3 className="text-xl font-semibold">Settings</h3>
             </button>
           </div>
 
           {/* Footer */}
-          <footer className="pt-6 text-center text-sm opacity-60">
+          <footer className="text-center text-sm text-gray-500 pt-6">
             © 2024 Rural Bank. Secure Banking for Everyone.
           </footer>
         </div>

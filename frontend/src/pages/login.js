@@ -23,47 +23,46 @@ function Login({ setUser }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background-light dark:bg-background-dark">
-      <div className="w-full max-w-md bg-white dark:bg-[#1a2c20] p-6 rounded-2xl shadow-md">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-200 to-emerald-300">
+      <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg">
         <h2 className="text-2xl font-bold text-center mb-6">
           RuralBank Login
         </h2>
 
-        {/* Mobile */}
-        <div className="mb-4">
-          <label className="block text-sm font-semibold mb-1">
-            Mobile Number
-          </label>
-          <input
-            type="tel"
-            placeholder="Enter mobile number"
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-            className="w-full h-12 px-4 rounded-full border-2 border-[#cfe7d7] focus:border-primary outline-none"
-          />
-        </div>
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-semibold mb-1">
+              Mobile Number
+            </label>
+            <input
+              type="tel"
+              placeholder="Enter mobile number"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+              className="w-full h-12 px-4 rounded-full border-2 border-green-200 focus:border-green-500 outline-none"
+            />
+          </div>
 
-        {/* Password */}
-        <div className="mb-6">
-          <label className="block text-sm font-semibold mb-1">
-            Password
-          </label>
-          <input
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full h-12 px-4 rounded-full border-2 border-[#cfe7d7] focus:border-primary outline-none"
-          />
-        </div>
+          <div>
+            <label className="block text-sm font-semibold mb-1">
+              Password
+            </label>
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full h-12 px-4 rounded-full border-2 border-green-200 focus:border-green-500 outline-none"
+            />
+          </div>
 
-        {/* Login Button */}
-        <button
-          onClick={login}
-          className="w-full h-12 bg-primary text-[#0d1b12] font-bold rounded-full hover:bg-[#25d660] transition"
-        >
-          Login
-        </button>
+          <button
+            onClick={login}
+            className="w-full h-12 bg-green-400 text-green-900 font-bold rounded-full hover:bg-green-500 transition"
+          >
+            Login
+          </button>
+        </div>
 
         <p className="text-xs text-center mt-4 opacity-60">
           Demo user: 9876543210 / 1234
