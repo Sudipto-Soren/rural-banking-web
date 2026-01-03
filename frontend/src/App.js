@@ -1,15 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Login from "./pages/login";
+import Dashboard from "./pages/dashboard";
 
 function App() {
-  return (
-    <div>
-      <h1>Rural Banking App</h1>
-      <button>Check Balance</button>
-      <button>Send Money</button>
-    </div>
-  );
+  const [user, setUser] = useState(null);
+
+  return user ? <Dashboard user={user} setUser={setUser} /> : <Login setUser={setUser} />;
 }
-
 export default App;
-
