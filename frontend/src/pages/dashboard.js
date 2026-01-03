@@ -1,7 +1,13 @@
 import { useState } from "react";
 import Balance from "./balance";
-import Transactions from "./transactions";
+import Transactions from "./transaction";
 import Settings from "./settings_home";
+import ChangePin from "./change_pin";
+import ChangePassword from "./change_pass";
+import ChangeUsername from "./change_user_name";
+import DeleteAccount from "./delete_acc";
+import CheckHistory from "./check_history";
+import TransferMoney from "./transfer_money";
 
 function Dashboard({ user, setUser }) {
   const [page, setPage] = useState("home");
@@ -9,6 +15,13 @@ function Dashboard({ user, setUser }) {
   if (page === "balance") return <Balance user={user} setPage={setPage} />;
   if (page === "transactions") return <Transactions user={user} setPage={setPage} />;
   if (page === "settings") return <Settings user={user} setPage={setPage} />;
+  if (page === "change_pin") return <ChangePin user={user} setPage={setPage} />;
+  if (page === "change_pass") return <ChangePassword user={user} setPage={setPage} />;
+  if (page === "change_user_name") return <ChangeUsername user={user} setPage={setPage} />;
+  if (page === "delete_acc") return <DeleteAccount user={user} setPage={setPage} />;
+  if (page === "check_history") return <CheckHistory user={user} setPage={setPage} />;
+  if (page === "transfer_money") return <TransferMoney user={user} setPage={setPage} />;
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 to-emerald-200 text-gray-900">
@@ -82,7 +95,7 @@ function Dashboard({ user, setUser }) {
 
           {/* Footer */}
           <footer className="text-center text-sm text-gray-500 pt-6">
-            © 2024 Rural Bank. Secure Banking for Everyone.
+            © 2025 Rural Bank. Secure Banking for Everyone.
           </footer>
         </div>
       </main>
